@@ -9,11 +9,13 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing primary key
+            $table->id(); 
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamps(); // Created_at and updated_at
+            $table->timestamps(); 
+            $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
         });
+
     }
 
     public function down()

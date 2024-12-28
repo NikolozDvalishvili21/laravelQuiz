@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Course;
+use App\Models\Teacher;
 use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        //
+        Teacher::all()->each(function ($teacher) {
+            Course::factory(rand(1, 13))->create(['teacher_id' => $teacher->id]);
+        });
     }
 }

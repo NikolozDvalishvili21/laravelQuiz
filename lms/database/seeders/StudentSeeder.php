@@ -1,14 +1,14 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace Database\Seeders;
+
 use App\Models\Student;
+use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
 {
     public function run()
     {
-        Student::create(['name' => 'John Doe', 'email' => 'john.doe@example.com']);
-        Student::create(['name' => 'Jane Doe', 'email' => 'jane.doe@example.com']);
+        Student::factory(387)->create(); 
     }
 }
-
